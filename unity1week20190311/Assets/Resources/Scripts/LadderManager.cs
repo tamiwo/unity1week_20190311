@@ -13,6 +13,11 @@ public class LadderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // 左ボタンクリック
+        if (Input.GetMouseButtonUp(0))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.Log("LeftClick:" + mousePos);
+        }
     }
 }
