@@ -65,7 +65,11 @@ public class LadderManager : MonoBehaviour
         GameObject ladder = Instantiate(Ladder,background.transform);
         var spriteObj = ladder.transform.Find("LadderSprite");
         var sprite = spriteObj.GetComponent<SpriteRenderer>();
-        var length = Vector3.Distance(end, start) / spriteObj.localScale.y;
+        Vector2 v = end - start;
+        Vector2 pos = (end - start) / 2 + start;
+        ladder.transform.position = new Vector3( pos.x,pos.y,ladder.transform.position.z);
+
+        var length = v.magnitude / spriteObj.localScale.y;
         Debug.Log("make ladder length:" + length);
         sprite.size = new Vector2( sprite.size.x, length );
     }
