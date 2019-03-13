@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LadderManager : MonoBehaviour
 {
-    public GameObject LadderSprite;
+    public GameObject Ladder;
+    public GameObject background;
 
     bool isDragging = false;
     Vector3 startPos;
@@ -54,7 +55,18 @@ public class LadderManager : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log("LeftClickUp:" + mousePos);
             isDragging = false;
+            MakeLadder(startPos, mousePos);
             //line.enabled = false;
         }
+    }
+
+    void MakeLadder(Vector3 start, Vector3 end)
+    {
+        GameObject ladder = Instantiate(Ladder,background.transform);
+        var spriteObj = ladder.transform.Find("LadderSprite");
+        var sprite = spriteObj.GetComponent<SpriteRenderer>();
+        var length = Vector3.Distance(end, start) / spriteObj.localScale.y;
+        Debug.Log("make ladder length:" + length);
+        sprite.size = new Vector2( sprite.size.x, length );
     }
 }
