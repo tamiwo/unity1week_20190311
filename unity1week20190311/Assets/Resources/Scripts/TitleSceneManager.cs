@@ -19,7 +19,8 @@ public class TitleSceneManager : MonoBehaviour {
     }
 
     public void LoadGameScene(){
-        SceneManager.LoadScene("GameScene");
+        FadeManager.FadeOut(1);
+        //SceneManager.LoadScene("GameScene");
     }
     public void LoadCreditScene()
     {
