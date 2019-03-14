@@ -16,6 +16,20 @@ public class moveAtCollision : MonoBehaviour
             var pos = transform.position;
             Vector2 newPos = new Vector2(pos.x + move.x, pos.y + move.y);
             transform.position = newPos;
+            RemoveChildren();
         }
+    }
+
+    void RemoveChildren()
+    {
+        var count = transform.childCount;
+        for (int i = 0; i < count; i++)
+        {
+            var child = transform.GetChild(i);
+            if (child.tag == "Scroll")
+            {
+                Destroy(child.gameObject);
+            }
+        }  
     }
 }
