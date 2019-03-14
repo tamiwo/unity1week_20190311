@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7682291457008943077}
   - component: {fileID: 4742774045138897181}
   - component: {fileID: 7890270505436319471}
+  - component: {fileID: 2788367476849221337}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 5760}
   colliderName: BackgroundLower
+--- !u!114 &2788367476849221337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181299131532180994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa29b20559a3e4061867b59cde11c730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8338054250656487023
 GameObject:
   m_ObjectHideFlags: 0
