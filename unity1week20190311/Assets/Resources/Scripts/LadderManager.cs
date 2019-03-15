@@ -10,11 +10,13 @@ public class LadderManager : MonoBehaviour
 
     Vector3 startPos;
     List<GameObject> ladderList;
+    LadderMaker ladderMaker;
 
     // Start is called before the first frame update
     void Start()
     {
         ladderList = new List<GameObject>();
+        ladderMaker = GetComponent<LadderMaker>();
     }
 
     // Update is called once per frame
@@ -33,33 +35,9 @@ public class LadderManager : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //Debug.Log("LeftClickUp:" + mousePos);
-            var ladder = MakeLadder(startPos, mousePos);
+            var ladder = ladderMaker.MakeLadder(startPos, mousePos);
             AddLadder(ladder);
         }
-    }
-
-    GameObject MakeLadder(Vector3 start, Vector3 end)
-    {
-        GameObject ladder = Instantiate(Ladder,background.transform);
-        var spriteObj = ladder.transform.Find("LadderSprite");
-        var sprite = spriteObj.GetComponent<SpriteRenderer>();
-        Vector2 v = end - start;
-
-        var t = ladder.transform;
-        // 位置
-        Vector2 pos = (end - start) / 2 + start;
-        t.position = new Vector3( pos.x, pos.y, t.position.z );
-
-        // 回転
-        var rotate = -Vector2.Angle(Vector2.up, v);
-        Debug.Log("rotate:" + rotate);
-        t.Rotate( new Vector3(0,0,rotate) );
-        // 長さ
-        var length = v.magnitude / spriteObj.localScale.y;
-        Debug.Log("make ladder length:" + length);
-        sprite.size = new Vector2( sprite.size.x, length );
-
-        return ladder;
     }
 
     void AddLadder(GameObject ladder)
