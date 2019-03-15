@@ -36,17 +36,55 @@ public class Form : MonoBehaviour
         }
     }
 
-    public void Create()
+    public void CreateCenter()
     {
         GameObject prefab = (GameObject)Instantiate(Prefab);
         Add(prefab);
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
-            UnityEngine.Random.Range(-300.0f, 300.0f),
-            UnityEngine.Random.Range(1400.0f, 1800.0f),
+            0.0f,
+            1400.0f,
+            //UnityEngine.Random.Range(-300.0f, 300.0f),
+            //UnityEngine.Random.Range(1400.0f, 1800.0f),
             0f);
         SetTimer(0);
     }
+
+    public void Create()
+    {
+        CreateCenter();
+        CreateLeft();
+        CreateRight();
+    }
+
+    public void CreateLeft()
+    {
+        GameObject prefab = (GameObject)Instantiate(Prefab);
+        Add(prefab);
+        prefab.transform.SetParent(canvasGame.transform, false);
+        prefab.transform.localPosition = new Vector3(
+            -378.0f,
+            1500.0f,
+            //UnityEngine.Random.Range(-300.0f, 300.0f),
+            //UnityEngine.Random.Range(1400.0f, 1800.0f),
+            0f);
+        SetTimer(0);
+    }
+
+    public void CreateRight()
+    {
+        GameObject prefab = (GameObject)Instantiate(Prefab);
+        Add(prefab);
+        prefab.transform.SetParent(canvasGame.transform, false);
+        prefab.transform.localPosition = new Vector3(
+            392.0f,
+            1600.0f,
+            //UnityEngine.Random.Range(-300.0f, 300.0f),
+            //UnityEngine.Random.Range(1400.0f, 1800.0f),
+            0f);
+        SetTimer(0);
+    }
+
 
     void Add(GameObject prefab)
     {
