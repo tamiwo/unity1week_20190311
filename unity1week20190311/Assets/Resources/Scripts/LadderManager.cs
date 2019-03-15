@@ -11,12 +11,14 @@ public class LadderManager : MonoBehaviour
     Vector3 startPos;
     List<GameObject> ladderList;
     LadderMaker ladderMaker;
+    DragLineMaker lineMaker;
 
     // Start is called before the first frame update
     void Start()
     {
         ladderList = new List<GameObject>();
         ladderMaker = GetComponent<LadderMaker>();
+        lineMaker = GetComponent<DragLineMaker>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class LadderManager : MonoBehaviour
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             startPos.z = 0f;
             //Debug.Log("LeftClickDown:" + startPos);
+            lineMaker.StartDrag(startPos);
         }
 
         // ドラッグ終わり
@@ -37,6 +40,7 @@ public class LadderManager : MonoBehaviour
             //Debug.Log("LeftClickUp:" + mousePos);
             var ladder = ladderMaker.MakeLadder(startPos, mousePos);
             AddLadder(ladder);
+            lineMaker.EndDrag();
         }
     }
 
