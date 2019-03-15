@@ -12,7 +12,7 @@ public class moveAtCollision : MonoBehaviour
     {
         if (collision.name == colliderName)
         {
-            Debug.Log("collision:" + colliderName);
+            //Debug.Log("collision:" + colliderName);
             var pos = transform.position;
             Vector2 newPos = new Vector2(pos.x + move.x, pos.y + move.y);
             transform.position = newPos;

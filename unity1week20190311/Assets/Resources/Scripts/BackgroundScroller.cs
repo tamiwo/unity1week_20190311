@@ -11,7 +11,7 @@ public class BackgroundScroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(backgrounds[0].transform.position);
+        //Debug.Log(backgrounds[0].transform.position);
 
         SetVelocity(speed);
     }

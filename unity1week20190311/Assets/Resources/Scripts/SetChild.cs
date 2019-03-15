@@ -18,7 +18,7 @@ public class SetChild : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision tag: " + collision.tag );
+        //Debug.Log("collision tag: " + collision.tag );
 
         if ((collision.tag == "Scroll") || (collision.tag == "Gold") || (collision.tag == "Enemy"))
         {
