@@ -8,10 +8,14 @@ public class Manager_Collider : MonoBehaviour
     public GameObject ScoreManager;
     private ScoreManager manager;
 
+    public GameObject GameOverManager;
+    private GameOverManager gameover;
+
     // Start is called before the first frame update
     void Start()
     {
         manager = ScoreManager.GetComponent<ScoreManager>();
+        gameover = GameOverManager.GetComponent<GameOverManager>();
     }
 
     // Update is called once per frame
@@ -26,6 +30,10 @@ public class Manager_Collider : MonoBehaviour
         {
             Debug.Log("GoldがPlayerと接触");
             manager.Add(1);
+        } else if (collision.gameObject.tag == "Enemy")
+        {
+            gameover.GameOver();
+            Debug.Log("EnemyがPlayerと接触");
         }
     }
 
