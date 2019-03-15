@@ -26,14 +26,8 @@ public class DragLineMaker : MonoBehaviour
         // ドラッグ開始
         if (Input.GetMouseButtonDown(0))
         {
-            startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            startPos.z = 0f;
-            //Debug.Log("LeftClickDown:" + startPos);
-            line.enabled = true;
-            line.SetPosition(0, startPos);
-            line.SetPosition(1, startPos);
-            isDragging = true;
-
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            StartDrag(mousePos);
         }
 
         // ドラッグ中
@@ -47,10 +41,25 @@ public class DragLineMaker : MonoBehaviour
         // ドラッグ終わり
         if (Input.GetMouseButtonUp(0))
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Debug.Log("LeftClickUp:" + mousePos);
-            isDragging = false;
-            line.enabled = false;
+            EndDrag();
         }
+    }
+
+    public void StartDrag( Vector3 pos )
+    {
+        startPos = pos;
+        startPos.z = 0f;
+        //Debug.Log("LeftClickDown:" + startPos);
+        line.enabled = true;
+        line.SetPosition(0, startPos);
+        line.SetPosition(1, startPos);
+        isDragging = true;
+    }
+
+    public void EndDrag()
+    {
+        //Debug.Log("LeftClickUp:" + mousePos);
+        isDragging = false;
+        line.enabled = false;
     }
 }
