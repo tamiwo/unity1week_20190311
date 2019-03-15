@@ -20,7 +20,7 @@ public class SetChild : MonoBehaviour
     {
         Debug.Log("collision tag: " + collision.tag );
 
-        if ((collision.tag == "Scroll") || (collision.tag == "Gold"))
+        if ((collision.tag == "Scroll") || (collision.tag == "Gold") || (collision.tag == "Enemy"))
         {
             var tf = collision.gameObject.transform;
             tf.SetParent(this.transform);
