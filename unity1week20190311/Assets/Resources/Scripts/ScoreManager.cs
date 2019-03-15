@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour {
         score = PlayerPrefs.GetInt(scoreKey, 0);
         PlayerPrefs.SetInt(scoreKey, 0);
         textScore = textScoreObj.GetComponent<Text>();
-        textScore.text = string.Format("{0:00000}", score);
+        textScore.text = string.Format("{0:0}", score);
         //hiscore = PlayerPrefs.GetInt(key, 0);
         //Debug.Log("hiscoe read" + hiscore);
         //textHiscore = textHiscoreObj.GetComponent<Text>();
@@ -32,7 +32,7 @@ public class ScoreManager : MonoBehaviour {
 
     public void Add(int num){
         score += num;
-        textScore.text = string.Format("{0:00000}", score);
+        textScore.text = string.Format("{0:0}", score);
         Debug.Log("Add発動");
         Debug.Log(score);
         Debug.Log("textScore" + textScore.text);
