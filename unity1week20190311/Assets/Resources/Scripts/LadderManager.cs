@@ -29,6 +29,8 @@ public class LadderManager : MonoBehaviour
         {
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             startPos.z = 0f;
+            // 3本のライン上にxの値を制限する
+
             //Debug.Log("LeftClickDown:" + startPos);
             lineMaker.StartDrag(startPos);
         }
@@ -37,6 +39,8 @@ public class LadderManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // 3本のライン上にxの値を制限する
+
             //Debug.Log("LeftClickUp:" + mousePos);
             var ladder = ladderMaker.MakeLadder(startPos, mousePos);
             AddLadder(ladder);
