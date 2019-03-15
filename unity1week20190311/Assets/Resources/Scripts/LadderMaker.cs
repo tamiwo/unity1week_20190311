@@ -49,9 +49,15 @@ public class LadderMaker : MonoBehaviour
         t.position = new Vector3(pos.x, pos.y, t.position.z);
 
         // 回転
-        var rotate = -Vector2.Angle(Vector2.up, v);
-        Debug.Log("rotate:" + rotate);
-        t.Rotate(new Vector3(0, 0, rotate));
+        var angle = Vector2.Angle(Vector2.up, v);
+        Vector3 cross = Vector3.Cross(Vector2.up, v);
+
+        if (cross.z > 0)
+        {
+            angle = 360 - angle;
+        }
+        Debug.Log("rotate:" + angle);
+        t.Rotate(new Vector3(0, 0, angle));
         // 長さ
         var length = v.magnitude / spriteObj.localScale.y;
         Debug.Log("make ladder length:" + length);
