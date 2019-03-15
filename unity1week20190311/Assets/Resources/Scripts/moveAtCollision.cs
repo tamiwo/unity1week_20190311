@@ -26,7 +26,7 @@ public class moveAtCollision : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var child = transform.GetChild(i);
-            if (child.tag == "Scroll")
+            if ((child.tag == "Scroll") || (child.tag == "Gold") || (child.tag == "Enemy"))
             {
                 Destroy(child.gameObject);
             }
