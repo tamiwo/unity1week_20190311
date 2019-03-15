@@ -501,6 +501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ladder: {fileID: 5727627075425037738, guid: da3e401e82fea40bf82cc6df1eb43536, type: 3}
   background: {fileID: 551574638}
+  ladderMax: 3
 --- !u!120 &897391737
 LineRenderer:
   m_ObjectHideFlags: 0

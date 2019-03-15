@@ -6,15 +6,17 @@ public class LadderManager : MonoBehaviour
 {
     public GameObject Ladder;
     public GameObject background;
+    public int ladderMax;
 
     bool isDragging = false;
     Vector3 startPos;
     LineRenderer line;
-
+    List<GameObject> ladderList;
 
     // Start is called before the first frame update
     void Start()
     {
+        ladderList = new List<GameObject>();
         //line = Instantiate(LadderSprite);
         line = gameObject.GetComponent<LineRenderer>();
         // 線の幅
@@ -33,7 +35,7 @@ public class LadderManager : MonoBehaviour
         {
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             startPos.z = 0f;
-            Debug.Log("LeftClickDown:" + startPos);
+            //Debug.Log("LeftClickDown:" + startPos);
             line.enabled = true;
             line.SetPosition(0, startPos);
             line.SetPosition(1, startPos);
@@ -53,14 +55,15 @@ public class LadderManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log("LeftClickUp:" + mousePos);
+            //Debug.Log("LeftClickUp:" + mousePos);
             isDragging = false;
-            MakeLadder(startPos, mousePos);
+            var ladder = MakeLadder(startPos, mousePos);
+            AddLadder(ladder);
             //line.enabled = false;
         }
     }
 
-    void MakeLadder(Vector3 start, Vector3 end)
+    GameObject MakeLadder(Vector3 start, Vector3 end)
     {
         GameObject ladder = Instantiate(Ladder,background.transform);
         var spriteObj = ladder.transform.Find("LadderSprite");
@@ -80,5 +83,20 @@ public class LadderManager : MonoBehaviour
         var length = v.magnitude / spriteObj.localScale.y;
         Debug.Log("make ladder length:" + length);
         sprite.size = new Vector2( sprite.size.x, length );
+
+        return ladder;
+    }
+
+    void AddLadder(GameObject ladder)
+    {
+        Debug.Log("ladders:" + ladderList.Count);
+        if( ladderList.Count >= ladderMax)
+        {
+            // 先頭を削除
+            var old = ladderList[0];
+            ladderList.RemoveAt(0);
+            Destroy(old);
+        }
+        ladderList.Add(ladder);
     }
 }
