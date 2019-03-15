@@ -24,20 +24,19 @@ public class DragLineMaker : MonoBehaviour
     void Update()
     {
 
-        // ドラッグ中
-        if (isDragging)
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0f;
-            line.SetPosition(1, mousePos);
-        }
-
 #if false //単体で使う場合に有効にする
         // ドラッグ開始
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             StartDrag(mousePos);
+        }
+        
+        // ドラッグ中
+        if (isDragging)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Dragging(mousePos);
         }
 
         // ドラッグ終わり
@@ -57,6 +56,12 @@ public class DragLineMaker : MonoBehaviour
         line.SetPosition(0, startPos);
         line.SetPosition(1, startPos);
         isDragging = true;
+    }
+
+    public void Dragging( Vector3 pos )
+    {
+        pos.z = 0f;
+        line.SetPosition(1, pos);
     }
 
     public void EndDrag()

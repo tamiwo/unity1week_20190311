@@ -7,11 +7,14 @@ public class LadderManager : MonoBehaviour
     public GameObject Ladder;
     public GameObject background;
     public int ladderMax;
+    public float[] linePos;
+    public float lineWidth;
 
     Vector3 startPos;
     List<GameObject> ladderList;
     LadderMaker ladderMaker;
     DragLineMaker lineMaker;
+    bool isDraw = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,21 +33,62 @@ public class LadderManager : MonoBehaviour
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             startPos.z = 0f;
             // 3本のライン上にxの値を制限する
+            foreach (float p in linePos) 
+            {
+                if ( ( (p - lineWidth) < startPos.x ) && ( (p + lineWidth) > startPos.x ) ) 
+                {
+                    startPos.x = p;
+                    isDraw = true;
+                    break;
+                }
+            }
+            if (isDraw)
+            {
+                lineMaker.StartDrag(startPos);
+            }
+        }
 
-            //Debug.Log("LeftClickDown:" + startPos);
-            lineMaker.StartDrag(startPos);
+        if (isDraw)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+            // 3本のライン上にxの値を制限する
+            foreach (float p in linePos)
+            {
+                if (((p - lineWidth) < mousePos.x) && ((p + lineWidth) > mousePos.x))
+                {
+                    mousePos.x = p;
+                    break;
+                }
+            }
+            lineMaker.Dragging(mousePos);
         }
 
         // ドラッグ終わり
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && isDraw)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             // 3本のライン上にxの値を制限する
-
-            //Debug.Log("LeftClickUp:" + mousePos);
-            var ladder = ladderMaker.MakeLadder(startPos, mousePos);
-            AddLadder(ladder);
-            lineMaker.EndDrag();
+            bool isOnLine = false;
+            foreach (float p in linePos)
+            {
+                if (((p - lineWidth) < mousePos.x) && ((p + lineWidth) > mousePos.x))
+                {
+                    mousePos.x = p;
+                    isOnLine = true;
+                    break;
+                }
+            }
+            if (isDraw)
+            {
+                lineMaker.EndDrag();
+                if (isOnLine)
+                {
+                    var ladder = ladderMaker.MakeLadder(startPos, mousePos);
+                    AddLadder(ladder);
+                }
+            }
+            isDraw = false;
         }
     }
 
