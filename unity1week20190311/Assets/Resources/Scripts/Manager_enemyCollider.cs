@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager_Collider : MonoBehaviour
+public class Manager_enemyCollider : MonoBehaviour
 {
 
-    public GameObject ScoreManager;
-    private ScoreManager manager;
 
     // Start is called before the first frame update
     void Start()
     {
-        manager = ScoreManager.GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -26,7 +23,6 @@ public class Manager_Collider : MonoBehaviour
         {
             Destroy(this.gameObject);
             Debug.Log("OnTriggerEnter2Dが発動");
-            manager.Add(1);
         }
     }
 

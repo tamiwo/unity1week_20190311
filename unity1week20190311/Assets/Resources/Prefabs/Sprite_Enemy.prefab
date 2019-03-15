@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5692614423550611454}
   - component: {fileID: 5692614423550611449}
   - component: {fileID: 7693605195441418430}
-  - component: {fileID: 1622120825880144330}
+  - component: {fileID: 3575201527518228259}
   m_Layer: 5
   m_Name: Sprite_Enemy
   m_TagString: Enemy
@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5692614423550611455}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 300, y: 300, z: 1}
   m_Children: []
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
---- !u!114 &1622120825880144330
+--- !u!114 &3575201527518228259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,6 +111,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5692614423550611455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a44fa4dc5cc4fbb923f0205a127abc, type: 3}
+  m_Script: {fileID: 11500000, guid: dcc4295df2f914d86a30dabac57c3016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
