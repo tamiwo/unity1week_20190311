@@ -22,10 +22,9 @@ public class Manager_Collider : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player") 
+        if(collision.gameObject.tag == "Gold") 
         {
-            Destroy(this.gameObject);
-            Debug.Log("OnTriggerEnter2Dが発動");
+            Debug.Log("GoldがPlayerと接触");
             manager.Add(1);
         }
     }

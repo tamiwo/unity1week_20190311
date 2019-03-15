@@ -33,6 +33,9 @@ public class ScoreManager : MonoBehaviour {
     public void Add(int num){
         score += num;
         textScore.text = string.Format("{0:00000}", score);
+        Debug.Log("Add発動");
+        Debug.Log(score);
+        Debug.Log("textScore" + textScore.text);
     }
 
     /*
