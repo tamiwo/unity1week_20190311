@@ -45,3 +45,9 @@ TagManager:
   - name: titlescene
     uniqueID: 509018323
     locked: 0
+  - name: GameScene
+    uniqueID: 3294808285
+    locked: 0
+  - name: Canvas
+    uniqueID: 1531011935
+    locked: 0
