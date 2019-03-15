@@ -607,7 +607,7 @@ Transform:
   - {fileID: 1440925204}
   - {fileID: 1644742553}
   m_Father: {fileID: 2016275826}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600395019
 GameObject:
@@ -1222,7 +1222,7 @@ PrefabInstance:
     - target: {fileID: 2721607395603078887, guid: 819f4b59449f64e209bfd27d4f289f5b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2721607395603078887, guid: 819f4b59449f64e209bfd27d4f289f5b,
         type: 3}
@@ -1546,6 +1546,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1634732319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2721607395603078886, guid: 819f4b59449f64e209bfd27d4f289f5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 924892147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1644742552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,6 +1715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1819555360}
   - component: {fileID: 1819555359}
+  - component: {fileID: 1819555361}
   m_Layer: 0
   m_Name: Form
   m_TagString: Untagged
@@ -1728,9 +1735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4488e410a645841a88a44aeff48ec434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldMax: 10
-  goldPrefab: {fileID: 2721607395603078886, guid: 819f4b59449f64e209bfd27d4f289f5b,
-    type: 3}
+  Max: 3
+  minInterval: 1
+  maxInterval: 4
+  Prefab: {fileID: 2721607395603078886, guid: 819f4b59449f64e209bfd27d4f289f5b, type: 3}
   canvasGame: {fileID: 2016275822}
 --- !u!4 &1819555360
 Transform:
@@ -1746,6 +1754,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1819555361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819555358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4488e410a645841a88a44aeff48ec434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max: 3
+  minInterval: 1
+  maxInterval: 4
+  Prefab: {fileID: 1634732319}
+  canvasGame: {fileID: 2016275822}
 --- !u!1 &1883958468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,8 +1948,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1709840428}
-  - {fileID: 276006770}
   - {fileID: 551574640}
+  - {fileID: 276006770}
   - {fileID: 859294103}
   m_Father: {fileID: 0}
   m_RootOrder: 3

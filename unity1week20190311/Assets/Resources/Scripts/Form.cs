@@ -5,49 +5,71 @@ using UnityEngine;
 public class Form : MonoBehaviour
 {
     //定数定義
-    private const int MAX_Gold = 3; //Gold最大数
-    public int goldMax;
+    private const int MAX = 3; //Gold最大数
+    public int Max;
+    public float minInterval;
+    public float maxInterval;
+    private float interval;
+    private float time;
 
     //オブジェクト参照
-    public GameObject goldPrefab;         // Gold
+    public GameObject Prefab;     
     public GameObject canvasGame;         // ゲームキャンバス
-    List<GameObject> goldList;
+    List<GameObject> List;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        goldList = new List<GameObject>();
+        List = new List<GameObject>();
+        SetTimer();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        CreateGold();
+        time += Time.deltaTime;
+        if(time > interval)
+        {
+            Create();
+        }
     }
 
-    public void CreateGold()
+    public void Create()
     {
-        GameObject Gold = (GameObject)Instantiate(goldPrefab);
-        AddGold(Gold);
-        Gold.transform.SetParent(canvasGame.transform, false);
-        Gold.transform.localPosition = new Vector3(
+        GameObject prefab = (GameObject)Instantiate(Prefab);
+        Add(prefab);
+        prefab.transform.SetParent(canvasGame.transform, false);
+        prefab.transform.localPosition = new Vector3(
             UnityEngine.Random.Range(-300.0f, 300.0f),
-            UnityEngine.Random.Range(-140.0f, -500.0f),
+            UnityEngine.Random.Range(1400.0f, 1800.0f),
             0f);
-
+        SetTimer(0);
     }
 
-    void AddGold(GameObject gold)
+    void Add(GameObject prefab)
     {
-            if (goldList.Count >= goldMax)
+            if (List.Count >= Max)
             {
                 // 先頭を削除
-                var old = goldList[0];
-                goldList.RemoveAt(0);
+                var old = List[0];
+                List.RemoveAt(0);
                 Destroy(old);
             }
-        goldList.Add(gold);
+        List.Add(prefab);
      }
 
+    void SetTimer(int val = 0)
+    {
+        if(val == 0)
+        {
+            interval = Random.Range(minInterval, maxInterval);
+        }
+        else
+        {
+            interval = (float)val;
+        }
+        time = 0;
+    }
 }
