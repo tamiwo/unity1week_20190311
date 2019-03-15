@@ -8,7 +8,6 @@ public class GameOverManager : MonoBehaviour
     private bool isGameOver = false;
     public GameObject ScoreManager;
     private ScoreManager manager;
-    public AudioClip sound01;
 
 
     // Start is called before the first frame update
@@ -20,7 +19,6 @@ public class GameOverManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void GameOver()
@@ -30,7 +28,6 @@ public class GameOverManager : MonoBehaviour
             return;
         }
         isGameOver = true;
-        sound01.PlayOneShot(sound01.clip);
         //naichilab.RankingLoader.Instance.SendScoreAndShowRanking(manager.score);
     }
 }
