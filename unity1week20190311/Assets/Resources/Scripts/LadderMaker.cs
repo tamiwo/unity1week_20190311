@@ -63,6 +63,11 @@ public class LadderMaker : MonoBehaviour
         Debug.Log("make ladder length:" + length);
         sprite.size = new Vector2(sprite.size.x, length);
 
+        // Collider
+        var col = ladder.GetComponent<Collider2D>();
+        Vector2 offset = new Vector2( 0f, -v.magnitude / 2);
+        col.offset = offset;
+
         return ladder;
     }
 }
