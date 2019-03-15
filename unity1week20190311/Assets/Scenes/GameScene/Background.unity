@@ -1633,7 +1633,7 @@ Transform:
   m_LocalScale: {x: 300, y: 300, z: 0.5}
   m_Children: []
   m_Father: {fileID: 2016275826}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1709840429
 SpriteRenderer:
@@ -1728,6 +1728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4488e410a645841a88a44aeff48ec434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldMax: 10
   goldPrefab: {fileID: 2721607395603078886, guid: 819f4b59449f64e209bfd27d4f289f5b,
     type: 3}
   canvasGame: {fileID: 2016275822}
@@ -1921,8 +1922,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 276006770}
   - {fileID: 1709840428}
+  - {fileID: 276006770}
   - {fileID: 551574640}
   - {fileID: 859294103}
   m_Father: {fileID: 0}
