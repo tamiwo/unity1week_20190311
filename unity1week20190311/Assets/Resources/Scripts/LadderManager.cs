@@ -8,23 +8,13 @@ public class LadderManager : MonoBehaviour
     public GameObject background;
     public int ladderMax;
 
-    bool isDragging = false;
     Vector3 startPos;
-    LineRenderer line;
     List<GameObject> ladderList;
 
     // Start is called before the first frame update
     void Start()
     {
         ladderList = new List<GameObject>();
-        //line = Instantiate(LadderSprite);
-        line = gameObject.GetComponent<LineRenderer>();
-        // 線の幅
-        line.startWidth = 50f;
-        line.endWidth = 50f;
-        // 頂点の数
-        line.positionCount = 2;
-        line.enabled = false;
     }
 
     // Update is called once per frame
@@ -36,19 +26,6 @@ public class LadderManager : MonoBehaviour
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             startPos.z = 0f;
             //Debug.Log("LeftClickDown:" + startPos);
-            line.enabled = true;
-            line.SetPosition(0, startPos);
-            line.SetPosition(1, startPos);
-            isDragging = true;
-            
-        }
-
-        // ドラッグ中
-        if (isDragging)
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0f;
-            line.SetPosition(1, mousePos);
         }
 
         // ドラッグ終わり
@@ -56,10 +33,8 @@ public class LadderManager : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //Debug.Log("LeftClickUp:" + mousePos);
-            isDragging = false;
             var ladder = MakeLadder(startPos, mousePos);
             AddLadder(ladder);
-            //line.enabled = false;
         }
     }
 
