@@ -36,6 +36,13 @@ public class Form : MonoBehaviour
         }
     }
 
+    public void Create()
+    {
+        CreateCenter();
+        CreateLeft();
+        CreateRight();
+    }
+
     public void CreateCenter()
     {
         GameObject prefab = (GameObject)Instantiate(Prefab);
@@ -43,18 +50,10 @@ public class Form : MonoBehaviour
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
             0.0f,
-            1400.0f,
             //UnityEngine.Random.Range(-300.0f, 300.0f),
-            //UnityEngine.Random.Range(1400.0f, 1800.0f),
+            UnityEngine.Random.Range(1400.0f, 3000.0f),
             0f);
         SetTimer(0);
-    }
-
-    public void Create()
-    {
-        CreateCenter();
-        CreateLeft();
-        CreateRight();
     }
 
     public void CreateLeft()
@@ -64,9 +63,9 @@ public class Form : MonoBehaviour
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
             -378.0f,
-            1500.0f,
+            
             //UnityEngine.Random.Range(-300.0f, 300.0f),
-            //UnityEngine.Random.Range(1400.0f, 1800.0f),
+            UnityEngine.Random.Range(1400.0f, 3000.0f),
             0f);
         SetTimer(0);
     }
@@ -78,9 +77,9 @@ public class Form : MonoBehaviour
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
             392.0f,
-            1600.0f,
+            
             //UnityEngine.Random.Range(-300.0f, 300.0f),
-            //UnityEngine.Random.Range(1400.0f, 1800.0f),
+            UnityEngine.Random.Range(1400.0f, 3000.0f),
             0f);
         SetTimer(0);
     }

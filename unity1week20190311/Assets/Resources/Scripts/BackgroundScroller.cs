@@ -23,7 +23,7 @@ public class BackgroundScroller : MonoBehaviour
     }
     void SetVelocity(Vector2 velocity)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 5; i++)
         {
             var r = backgrounds[i].GetComponent<Rigidbody2D>();
             r.velocity = velocity;
