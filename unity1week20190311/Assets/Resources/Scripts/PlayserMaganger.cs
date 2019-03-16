@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayserMaganger : MonoBehaviour
 {
     float yPos;
+    bool isMove;
+    float max;
+    float min;
+    Ladder ladder;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +18,34 @@ public class PlayserMaganger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isMove)
+        {
+            // ハシゴの始点と終点を取得する
+            var start = ladder.GetStartPos();// + new Vector2(0,-50);
+            var end = ladder.GetEndPos();// + new Vector2(0, -50);
+                                         //Debug.Log("s,e=" + start + "," + end);
+
+
+            // プレイヤーのy座標の直線との交点を求める
+            var cross = GetCrossPoint(start, end, new Vector2(-800, yPos), new Vector2(800, yPos));
+            Debug.Log("cross(" + yPos + "):" + cross);
+
+            Debug.Log(max + "<-max,min->" + min);
+            if (cross.x > max)
+            {
+                cross.x = max;
+                isMove = false;
+            }
+            else if (cross.x < min)
+            {
+                cross.x = min;
+                isMove = false;
+            }
+
+            transform.position = new Vector2(cross.x, transform.position.y);
+        }
+
 #if false //できなかった時の最終的手段、A:左、S:真ん中、D:右
         if (Input.GetKey(KeyCode.A))
         {
@@ -36,36 +68,36 @@ public class PlayserMaganger : MonoBehaviour
     {
         if (collision.tag == "Scroll") // ハシゴ
         {
-            var ladder = collision.GetComponent<Ladder>();
+            ladder = collision.GetComponent<Ladder>();
             // ハシゴの始点と終点を取得する
             var start = ladder.GetStartPos();// + new Vector2(0,-50);
             var end = ladder.GetEndPos();// + new Vector2(0, -50);
-            Debug.Log("s,e=" + start + "," + end);
+            Debug.Log("TE2D s,e=" + start + "," + end);
 
             // starとend 近いほうの点のy座標を求める
             var near = GetNearPoint(start, end);
             yPos = near.y;
 
-            // プレイヤーのy座標の直線との交点を求める
-            var cross = GetCrossPoint(start, end, new Vector2(-800,yPos), new Vector2(800, yPos));
-            Debug.Log("cross(" + yPos + "):" + cross);
-
             // 交点をプレイヤーの座標とする
-            float max;
-            float min;
             //行き過ぎないように
             if (start.x > end.x) //startの方が右
             {
-                max = start.x -5;
-                min = end.x + 5;
+                max = start.x + 5;
+                min = end.x - 5;
             }
             else
             {
-                max = end.x - 5;
-                min = start.x + 5;
+                max = end.x + 5;
+                min = start.x - 5;
             }
 
-            Debug.Log(max + "<-max,min->" + min);
+            isMove = true;
+
+            // プレイヤーのy座標の直線との交点を求める
+            var cross = GetCrossPoint(start, end, new Vector2(-800, yPos), new Vector2(800, yPos));
+            Debug.Log("TE2D cross(" + yPos + "):" + cross);
+
+            Debug.Log(max + "<-maxTE2D,min->" + min);
             if (cross.x > max)
             {
                 cross.x = max;
@@ -87,6 +119,7 @@ public class PlayserMaganger : MonoBehaviour
         }
     }
 
+#if false
     private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("collisioning" + collision.tag);
@@ -135,6 +168,7 @@ public class PlayserMaganger : MonoBehaviour
         Debug.Log("ext" + collision.tag);
 
     }
+#endif
 
     Vector2 GetNearPoint(Vector2 p1, Vector2 p2)
     {
