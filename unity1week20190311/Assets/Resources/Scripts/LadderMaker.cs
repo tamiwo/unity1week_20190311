@@ -38,12 +38,13 @@ public class LadderMaker : MonoBehaviour
 
     public GameObject MakeLadder(Vector3 start, Vector3 end)
     {
-        GameObject ladder = Instantiate(ladderPrefab, parent.transform);
-        var spriteObj = ladder.transform.Find("LadderSprite");
+        GameObject ladderObj = Instantiate(ladderPrefab, parent.transform);
+        var spriteObj = ladderObj.transform.Find("LadderSprite");
         var sprite = spriteObj.GetComponent<SpriteRenderer>();
+        var ladder = ladderObj.GetComponent<Ladder>();
         Vector2 v = end - start;
 
-        var t = ladder.transform;
+        var t = ladderObj.transform;
         // 位置
         Vector2 pos = (end - start) / 2 + start;
         t.position = new Vector3(pos.x, pos.y, t.position.z);
@@ -64,10 +65,13 @@ public class LadderMaker : MonoBehaviour
         sprite.size = new Vector2(sprite.size.x, length);
 
         // Collider
-        var col = ladder.GetComponent<Collider2D>();
-        Vector2 offset = new Vector2( 0f, -v.magnitude / 2);
-        col.offset = offset;
+        var col = ladderObj.GetComponent<CapsuleCollider2D>();
+        //Vector2 offset = new Vector2( 0f, -v.magnitude / 2);
+        //col.offset = offset;
+        col.size = new Vector2( col.size.x, v.magnitude);
 
-        return ladder;
+        ladder.SetPos(start, end);
+
+        return ladderObj;
     }
 }

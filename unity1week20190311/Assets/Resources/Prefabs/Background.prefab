@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4742774045138897181}
   - component: {fileID: 7890270505436319471}
   - component: {fileID: 2788367476849221337}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328893677896372373}
   - component: {fileID: 1834940594230807120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}

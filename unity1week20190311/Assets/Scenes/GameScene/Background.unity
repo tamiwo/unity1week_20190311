@@ -1218,10 +1218,10 @@ MonoBehaviour:
   background: {fileID: 551574638}
   ladderMax: 3
   linePos:
-  - -400
+  - -378
   - 0
-  - 400
-  lineWidth: 100
+  - 392
+  lineWidth: 200
 --- !u!120 &897391737
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1729,7 +1729,8 @@ GameObject:
   - component: {fileID: 1709840429}
   - component: {fileID: 1709840430}
   - component: {fileID: 1709840431}
-  m_Layer: 0
+  - component: {fileID: 1709840432}
+  m_Layer: 8
   m_Name: Sprite_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1808,7 +1809,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1828,6 +1829,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreManager: {fileID: 381469072}
   GameOverManager: {fileID: 1989301215}
+--- !u!114 &1709840432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709840427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cec3496439e64b87b357a044ac35437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1819555358
 GameObject:
   m_ObjectHideFlags: 0
