@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43218457a61c4f5e866fc89f4676a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {x: 0, y: -7680}
+  move: {x: 0, y: -9600}
   colliderName: BackgroundUpper
 --- !u!114 &7890270505436319471
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43218457a61c4f5e866fc89f4676a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {x: 0, y: 7680}
+  move: {x: 0, y: 9600}
   colliderName: BackgroundLower
 --- !u!114 &2788367476849221337
 MonoBehaviour:
