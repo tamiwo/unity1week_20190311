@@ -16,6 +16,8 @@ public class Form : MonoBehaviour
     public GameObject Prefab;     
     public GameObject canvasGame;         // ゲームキャンバス
     List<GameObject> List;
+    public GameObject backgroundScrollerObj;
+    private BackgroundScroller bgScroller;
 
     //生成確率
     public float create1Position;
@@ -26,13 +28,16 @@ public class Form : MonoBehaviour
     {
         List = new List<GameObject>();
         SetTimer();
+        bgScroller = backgroundScrollerObj.GetComponent<BackgroundScroller>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        // 背景のスピードが上がるほど早く時間を進めて早く生成する
+        float timeScale = bgScroller.speed.y / bgScroller.initialSpeed.y;
+        time += Time.deltaTime * timeScale;
         if(time > interval)
         {
             Create();

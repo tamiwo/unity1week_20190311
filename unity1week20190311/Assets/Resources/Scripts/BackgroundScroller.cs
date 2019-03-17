@@ -5,8 +5,9 @@ using UnityEngine;
 public class BackgroundScroller : MonoBehaviour
 {
 
+    public Vector2 initialSpeed;
     public Vector2 speed;
-    public float upSpeed;
+    public Vector2 upSpeed;
     public GameObject[] backgrounds;
 
     // Start is called before the first frame update
@@ -14,13 +15,14 @@ public class BackgroundScroller : MonoBehaviour
     {
         //Debug.Log(backgrounds[0].transform.position);
 
+        speed = initialSpeed;
         SetVelocity(speed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        speed.y += upSpeed;
+        speed += upSpeed;
         SetVelocity(speed);
 
     }
