@@ -878,15 +878,15 @@ RectTransform:
   m_GameObject: {fileID: 604091313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 500260486}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 122.75, y: 778}
-  m_SizeDelta: {x: 909.5, y: 344}
+  m_AnchoredPosition: {x: 275, y: 805}
+  m_SizeDelta: {x: 909.5, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &604091315
 MonoBehaviour:
@@ -901,7 +901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9622642, g: 0.5582948, b: 0.5582948, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -909,7 +909,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 45e7ca6f7506543ac8bd922ca4ae9022, type: 3}
+    m_Font: {fileID: 12800000, guid: 67cf6343d5ba844dbbfe16318ed122cd, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
@@ -1209,7 +1209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -290, y: 778}
+  m_AnchoredPosition: {x: -250, y: 755}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872369611
@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.09438412, b: 0.09438412, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1430,6 +1430,7 @@ MonoBehaviour:
   ladderPrefab: {fileID: 5727627075425037738, guid: da3e401e82fea40bf82cc6df1eb43536,
     type: 3}
   parent: {fileID: 551574638}
+  soundLadder: {fileID: 0}
 --- !u!1 &901586533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreManager: {fileID: 381469072}
   GameOverManager: {fileID: 1989301215}
+  soundGold: {fileID: 0}
 --- !u!58 &1306261390
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2582,6 +2584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreManager: {fileID: 381469072}
   GameOverManager: {fileID: 1989301215}
+  soundGold: {fileID: 0}
 --- !u!114 &1709840432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,7 +2777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -434, y: 805}
+  m_AnchoredPosition: {x: -416, y: 790}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1883958470
