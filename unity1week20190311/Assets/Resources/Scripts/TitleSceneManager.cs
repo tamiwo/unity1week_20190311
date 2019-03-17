@@ -5,14 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TitleSceneManager : MonoBehaviour {
 
-    public AudioClip audioClip;
-    AudioSource audioSource;
-
-
     // Use this for initialization
     void Start () {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = audioClip;
+
     }
 	
 	// Update is called once per frame
@@ -24,7 +19,6 @@ public class TitleSceneManager : MonoBehaviour {
     }
 
     public void LoadGameScene(){
-        audioSource.Play();
         FadeManager.FadeOut(1);
         //SceneManager.LoadScene("GameScene");
     }
