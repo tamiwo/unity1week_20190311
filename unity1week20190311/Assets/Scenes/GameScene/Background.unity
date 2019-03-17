@@ -1909,8 +1909,8 @@ MonoBehaviour:
   maxInterval: 6
   Prefab: {fileID: 5692614423550611455, guid: af4d8f8efe4c04567835fccb21b115f2, type: 3}
   canvasGame: {fileID: 2016275822}
-  create1Position: 0.24
-  create2Position: 0.9
+  create1Position: 0.3
+  create2Position: 0.03
 --- !u!1 &1883958468
 GameObject:
   m_ObjectHideFlags: 0
