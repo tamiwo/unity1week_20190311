@@ -11,9 +11,14 @@ public class Manager_Collider : MonoBehaviour
     public GameObject GameOverManager;
     private GameOverManager gameover;
 
+    public AudioClip soundGold;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Componentを取得
+        audioSource = GetComponent<AudioSource>();
         manager = ScoreManager.GetComponent<ScoreManager>();
         gameover = GameOverManager.GetComponent<GameOverManager>();
     }
@@ -21,7 +26,7 @@ public class Manager_Collider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +35,9 @@ public class Manager_Collider : MonoBehaviour
         {
             Debug.Log("GoldがPlayerと接触");
             manager.Add(1);
+            //音(sound1)を鳴らす
+            audioSource.PlayOneShot(soundGold);
+
         } else if (collision.gameObject.tag == "Enemy")
         {
             gameover.GameOver();
