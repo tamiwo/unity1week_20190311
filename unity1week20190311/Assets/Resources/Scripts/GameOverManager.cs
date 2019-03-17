@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class GameOverManager : MonoBehaviour
     private bool isGameOver = false;
     public GameObject ScoreManager;
     private ScoreManager manager;
-
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,9 @@ public class GameOverManager : MonoBehaviour
         {
             return;
         }
+        // スコアの保存
+        manager.SaveScore();
         isGameOver = true;
-        //naichilab.RankingLoader.Instance.SendScoreAndShowRanking(manager.score);
+        FadeManager.FadeOut(2);
     }
 }
