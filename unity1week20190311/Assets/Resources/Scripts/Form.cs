@@ -36,6 +36,7 @@ public class Form : MonoBehaviour
         if(time > interval)
         {
             Create();
+            SetTimer(0);
         }
     }
 
@@ -73,7 +74,6 @@ public class Form : MonoBehaviour
         else
         {
         }
-        SetTimer(0);
     }
 
     public void CreateCenter()
@@ -84,7 +84,8 @@ public class Form : MonoBehaviour
         prefab.transform.localPosition = new Vector3(
             0.0f,
             //UnityEngine.Random.Range(-300.0f, 300.0f),
-            UnityEngine.Random.Range(1400.0f, 3000.0f),
+            //UnityEngine.Random.Range(1400.0f, 3000.0f),
+            1500f,
             0f);
     }
 
@@ -95,9 +96,9 @@ public class Form : MonoBehaviour
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
             -378.0f,
-            
             //UnityEngine.Random.Range(-300.0f, 300.0f),
-            UnityEngine.Random.Range(1400.0f, 3000.0f),
+            //UnityEngine.Random.Range(1400.0f, 3000.0f),
+            1500f,
             0f);
     }
 
@@ -108,9 +109,9 @@ public class Form : MonoBehaviour
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
             392.0f,
-            
             //UnityEngine.Random.Range(-300.0f, 300.0f),
-            UnityEngine.Random.Range(1400.0f, 3000.0f),
+            //UnityEngine.Random.Range(1400.0f, 3000.0f),
+            1500f,
             0f);
     }
 
