@@ -16,7 +16,8 @@ public class ScoreManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        score = PlayerPrefs.GetInt(scoreKey, 0);
+        //score = PlayerPrefs.GetInt(scoreKey, 0);
+        score = 0;
         PlayerPrefs.SetInt(scoreKey, 0);
         textScore = textScoreObj.GetComponent<Text>();
         textScore.text = string.Format("{0:0}", score);
