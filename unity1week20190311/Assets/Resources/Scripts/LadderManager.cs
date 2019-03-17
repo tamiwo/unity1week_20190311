@@ -84,8 +84,28 @@ public class LadderManager : MonoBehaviour
                 lineMaker.EndDrag();
                 if (isOnLine)
                 {
-                    var ladder = ladderMaker.MakeLadder(startPos, mousePos);
-                    AddLadder(ladder);
+
+                    if (startPos.y + 1 > mousePos.y && mousePos.y > startPos.y - 1)
+                    {
+                        if (startPos.y > mousePos.y)
+                        {
+                            startPos.y += 1;
+                        }
+                        else
+                        {
+                            mousePos.y += 1;
+                        }
+                    }
+
+                    if (startPos.x + 1 > mousePos.x && mousePos.x > startPos.x - 1)
+                    {
+
+                    }
+                    else
+                    {
+                        var ladder = ladderMaker.MakeLadder(startPos, mousePos);
+                        AddLadder(ladder);
+                    }
                 }
             }
             isDraw = false;
