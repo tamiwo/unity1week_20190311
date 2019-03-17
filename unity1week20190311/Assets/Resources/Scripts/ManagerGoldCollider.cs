@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ManagerGoldCollider : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class ManagerGoldCollider : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         // enemyと同じ位置に生成されて場合は消す
         if (collision.gameObject.tag == "Enemy")
         {

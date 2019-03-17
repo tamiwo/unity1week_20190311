@@ -7,11 +7,16 @@ public class LadderMaker : MonoBehaviour
     public GameObject ladderPrefab;
     public GameObject parent;
 
+    public AudioClip soundLadder;
+    AudioSource audioSource;
+
     Vector3 startPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Componentを取得
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -71,7 +76,13 @@ public class LadderMaker : MonoBehaviour
         col.size = new Vector2( col.size.x, v.magnitude);
 
         ladder.SetPos(start, end);
-
+        //音(sound1)を鳴らす
+        audioSource.PlayOneShot(soundLadder);      // 左
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            //音(sound1)を鳴らす
+            audioSource.PlayOneShot(soundLadder);
+        }
         return ladderObj;
     }
 }
