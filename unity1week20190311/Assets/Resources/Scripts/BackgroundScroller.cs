@@ -6,6 +6,7 @@ public class BackgroundScroller : MonoBehaviour
 {
 
     public Vector2 speed;
+    public float upSpeed;
     public GameObject[] backgrounds;
 
     // Start is called before the first frame update
@@ -19,6 +20,8 @@ public class BackgroundScroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed.y += upSpeed;
+        SetVelocity(speed);
 
     }
     void SetVelocity(Vector2 velocity)

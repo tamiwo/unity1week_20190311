@@ -684,6 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: -500}
+  upSpeed: -0.1
   backgrounds:
   - {fileID: 1399992675}
   - {fileID: 2005779109}
