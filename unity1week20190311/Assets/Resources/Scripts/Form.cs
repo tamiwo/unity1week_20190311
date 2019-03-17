@@ -92,6 +92,7 @@ public class Form : MonoBehaviour
             //UnityEngine.Random.Range(1400.0f, 3000.0f),
             1500f,
             0f);
+        
     }
 
     public void CreateLeft()
