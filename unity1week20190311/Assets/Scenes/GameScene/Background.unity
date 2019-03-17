@@ -2340,6 +2340,7 @@ GameObject:
   - component: {fileID: 1709840432}
   - component: {fileID: 1709840433}
   - component: {fileID: 1709840434}
+  - component: {fileID: 1709840435}
   m_Layer: 8
   m_Name: Sprite_Player
   m_TagString: Player
@@ -2496,6 +2497,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.35, y: 4.393707}
   m_EdgeRadius: 0
+--- !u!114 &1709840435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709840427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bd86b216a4e4061a8a2b6ec0826928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDetectTag: Enemy
+  collisionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1989301216}
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1819555358
 GameObject:
   m_ObjectHideFlags: 0
