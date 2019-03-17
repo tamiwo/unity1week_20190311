@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ReturnButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadGameScene()
     {
-        
+        FadeManager.FadeOut(1);
+        //SceneManager.LoadScene("GameScene");
     }
 }
