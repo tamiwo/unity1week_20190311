@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2721607395603078880}
   - component: {fileID: 1382162855}
   - component: {fileID: 9203035595867131484}
+  - component: {fileID: 7238773022902734518}
   m_Layer: 9
   m_Name: Sprite_Gold
   m_TagString: Gold
@@ -101,7 +102,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
 --- !u!114 &9203035595867131484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,5 +113,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcc4295df2f914d86a30dabac57c3016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7238773022902734518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721607395603078886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0945a584d72d6441cb3d8bcbd9933f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
