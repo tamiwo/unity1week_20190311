@@ -17,6 +17,9 @@ public class Form : MonoBehaviour
     public GameObject canvasGame;         // ゲームキャンバス
     List<GameObject> List;
 
+    //生成確率
+    public float create1Position;
+    public float create2Position;
 
     // Start is called before the first frame update
     void Start()
@@ -38,28 +41,57 @@ public class Form : MonoBehaviour
 
     public void Create()
     {
-        CreateCenter();
-        CreateLeft();
-        CreateRight();
+        //ランダムで1箇所 or 2箇所に生成
+        float pos = Random.value; //0 〜 1
+        if (pos < create1Position) //
+        {
+            CreateCenter();
+        }
+        else if (pos < create1Position * 2)
+        {
+            CreateLeft();
+        }
+        else if (pos < create1Position * 3)
+        {
+            CreateRight();
+        }
+        else if (pos < (create2Position + create1Position * 3))
+        {
+            CreateRight();
+            CreateCenter();
+        }
+        else if (pos < (create2Position * 2 + create1Position * 3))
+        {
+            CreateCenter();
+            CreateLeft();
+        }
+        else if (pos < (create2Position * 3 + create1Position * 3))
+        {
+            CreateLeft();
+            CreateRight();
+        }
+        else
+        {
+        }
+        SetTimer(0);
     }
 
     public void CreateCenter()
     {
         GameObject prefab = (GameObject)Instantiate(Prefab);
-        Add(prefab);
+        //Add(prefab);
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
             0.0f,
             //UnityEngine.Random.Range(-300.0f, 300.0f),
             UnityEngine.Random.Range(1400.0f, 3000.0f),
             0f);
-        SetTimer(0);
     }
 
     public void CreateLeft()
     {
         GameObject prefab = (GameObject)Instantiate(Prefab);
-        Add(prefab);
+        //Add(prefab);
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
             -378.0f,
@@ -67,13 +99,12 @@ public class Form : MonoBehaviour
             //UnityEngine.Random.Range(-300.0f, 300.0f),
             UnityEngine.Random.Range(1400.0f, 3000.0f),
             0f);
-        SetTimer(0);
     }
 
     public void CreateRight()
     {
         GameObject prefab = (GameObject)Instantiate(Prefab);
-        Add(prefab);
+        //Add(prefab);
         prefab.transform.SetParent(canvasGame.transform, false);
         prefab.transform.localPosition = new Vector3(
             392.0f,
@@ -81,19 +112,19 @@ public class Form : MonoBehaviour
             //UnityEngine.Random.Range(-300.0f, 300.0f),
             UnityEngine.Random.Range(1400.0f, 3000.0f),
             0f);
-        SetTimer(0);
     }
 
 
     void Add(GameObject prefab)
     {
-            if (List.Count >= Max)
-            {
-                // 先頭を削除
-                var old = List[0];
-                List.RemoveAt(0);
-                Destroy(old);
-            }
+        if (List.Count >= Max)
+        {
+            // 先頭を削除
+            var old = List[0];
+            List.RemoveAt(0);
+            Debug.Log(old.name + " count Over" + List.Count);
+            Destroy(old);
+        }
         List.Add(prefab);
      }
 
