@@ -3075,7 +3075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Max: 3
   minInterval: 1
-  maxInterval: 9
+  maxInterval: 6
   Prefab: {fileID: 2721607395603078886, guid: 819f4b59449f64e209bfd27d4f289f5b, type: 3}
   canvasGame: {fileID: 2016275822}
   backgroundScrollerObj: {fileID: 551574638}
@@ -3108,8 +3108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Max: 3
-  minInterval: 3
-  maxInterval: 9
+  minInterval: 2
+  maxInterval: 6
   Prefab: {fileID: 5692614423550611455, guid: af4d8f8efe4c04567835fccb21b115f2, type: 3}
   canvasGame: {fileID: 2016275822}
   backgroundScrollerObj: {fileID: 551574638}
