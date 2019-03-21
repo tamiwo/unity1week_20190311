@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ManagerGoldCollider : MonoBehaviour
 {
@@ -27,4 +28,6 @@ public class ManagerGoldCollider : MonoBehaviour
             Debug.Log("Enamy exsit");
         }
     }
+
+
 }
