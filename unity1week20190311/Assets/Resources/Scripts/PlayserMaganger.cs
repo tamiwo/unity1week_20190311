@@ -43,7 +43,7 @@ public class PlayserMaganger : MonoBehaviour
                 isMove = false;
             }
 
-            transform.position = new Vector2(cross.x, transform.position.y);
+            transform.localPosition = new Vector2(cross.x, transform.localPosition.y);
         }
 
 #if false //できなかった時の最終的手段、A:左、S:真ん中、D:右
@@ -107,7 +107,7 @@ public class PlayserMaganger : MonoBehaviour
                 cross.x = min;
             }
 
-            transform.position = new Vector2(cross.x, transform.position.y);
+            transform.localPosition = new Vector2(cross.x, transform.localPosition.y);
 
             // ハシゴの回転角を取得する
 
