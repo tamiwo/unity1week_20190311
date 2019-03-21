@@ -12,12 +12,12 @@ public class moveAtCollision : MonoBehaviour
     {
         if (collision.name == colliderName)
         {
-            Debug.Log("collision:" + name +" "+transform.position);
-            var pos = transform.position;
+            //Debug.Log("collision:" + name +" "+transform.position);
+            var pos = transform.localPosition;
             if (pos.y < 0) //連続して判定が入った場合の対処
             {
                 Vector2 newPos = new Vector2(pos.x + move.x, pos.y + move.y);
-                transform.position = newPos;
+                transform.localPosition = newPos;
                 RemoveChildren();
             }
         }
