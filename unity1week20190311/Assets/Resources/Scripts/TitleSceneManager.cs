@@ -14,7 +14,14 @@ public class TitleSceneManager : MonoBehaviour {
 	void Update () {
         if (Input.anyKey)
         {
-            LoadGameScene();
+            // タッチ/マウス入力のときは呼ばない
+            if ((Input.touchCount <= 0) &&
+                 (!Input.GetMouseButton(0)) &&
+                 (!Input.GetMouseButton(1)) &&
+                 (!Input.GetMouseButton(2)))
+            {
+                LoadGameScene();
+            }
         }
     }
 
