@@ -15,6 +15,8 @@ public class Manager_Collider : MonoBehaviour
     public AudioClip soundGold;
     AudioSource audioSource;
 
+    public GameObject tweenGold;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,8 @@ public class Manager_Collider : MonoBehaviour
         if(collision.gameObject.tag == "Gold") 
         {
             AddGoldPoint();
+            Instantiate(tweenGold, transform.parent)
+                .transform.position = transform.position;
 
         } else if (collision.gameObject.tag == "Enemy")
         {

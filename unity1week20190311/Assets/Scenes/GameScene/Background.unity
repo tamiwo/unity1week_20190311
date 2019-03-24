@@ -2006,6 +2006,7 @@ MonoBehaviour:
   ScoreManager: {fileID: 381469072}
   GameOverManager: {fileID: 1989301215}
   soundGold: {fileID: 0}
+  tweenGold: {fileID: 0}
 --- !u!58 &1306261390
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2846,6 +2847,8 @@ MonoBehaviour:
   ScoreManager: {fileID: 381469072}
   GameOverManager: {fileID: 1989301215}
   soundGold: {fileID: 8300000, guid: bd6daf2f11ad5433b978702035e81f23, type: 3}
+  tweenGold: {fileID: 4993561803188014847, guid: db797cc35dc97467ea61c26d7b252629,
+    type: 3}
 --- !u!114 &1709840432
 MonoBehaviour:
   m_ObjectHideFlags: 0
