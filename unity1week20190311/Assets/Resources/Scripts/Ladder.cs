@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Ladder : MonoBehaviour
 {
@@ -32,5 +33,17 @@ public class Ladder : MonoBehaviour
     public Vector2 GetEndPos()
     {
         return _end.position;
+    }
+
+    private void Start()
+    {
+        StartAnimation();
+    }
+
+    public void StartAnimation()
+    {
+        Vector3 rotate = new Vector3(0, 0, 10f);
+        Sequence seq = DOTween.Sequence()
+            .Append(transform.DOPunchRotation(rotate,0.3f));
     }
 }
