@@ -53,6 +53,10 @@ public class ScoreManager : MonoBehaviour {
     public void SaveScore(){
         Debug.Log("saveScore" + score);
         PlayerPrefs.SetInt(scoreKey, score);
+        string totalKey = "totalGold";
+        int total = PlayerPrefs.GetInt(totalKey, 0);
+        Debug.Log("total:" + total + "+" + score + "=" + (total + score));
+        PlayerPrefs.SetInt(totalKey, total + score);
     }
 
 }
