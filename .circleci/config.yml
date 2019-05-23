@@ -1,0 +1,54 @@
+# Golang CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-go/ for more details
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version
+      - image: cibuilds/hugo:latest
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+    branches:
+        only:
+          - master
+    #### TEMPLATE_NOTE: go expects specific checkout path representing url
+    #### expecting it in the form of
+    ####   /go/src/github.com/circleci/go-tool
+    ####   /go/src/bitbucket.org/circleci/go-tool
+    working_directory: ~/hugo
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "11:90:8b:8b:7c:26:8e:78:8a:42:3b:0c:47:ad:81:44"
+      - run:
+          name: Update enviroment
+          command: apk update && apk add git
+      - run:
+          name: Hugo version
+          command: echo "$(hugo version)"
+      - checkout
+      - run:
+          name: Config github
+          command: |
+              echo "user.email: $(git --no-pager show -s --format='%ae' HEAD)"
+              git config --global user.email $(git --no-pager show -s --format='%ae' HEAD)
+              echo "user.name: $CIRCLE_USERNAME"
+              git config --global user.name $CIRCLE_USERNAME
+      - run:
+          name: hugo build
+          command: hugo
+      - run:
+          name: push to master
+          command: |
+              git clone https://github.com/otutama/otutama.github.io.git
+              ls
+              cp -rp public/* otutama.github.io/
+              cd otutama.github.io
+              ls
+              git remote set-url origin git@github.com:otutama/otutama.github.io.git
+              git add -f .
+              git commit -m "Deploy #$CIRCLE_BUILD_NUM from CircleCI [ci skip]"
+              git push -f
